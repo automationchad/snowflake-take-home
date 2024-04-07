@@ -18,6 +18,14 @@ To install Snowflake on your Mac, you can use Homebrew:
 brew install --cask snowflake-snowsql
 ```
 
+Verify that SnowSQL is installed correctly by running the following command:
+
+```shell
+snowsql -v
+```
+
+## Troubleshooting
+
 In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
 
 ```shell
@@ -26,19 +34,18 @@ cd ..
 ls
 cd etc
 sudo nano paths
-# 2. Enter Password
-# 3. Add in the path as follows:
-   /Applications/SnowSQL.app/Contents/MacOS/
-control + x
-Y
-[ENTER]
 ```
 
-Verify that SnowSQL is installed correctly by running the following command:
+You'll then be prompted to enter your password. 
+After that, add the path to the SnowSQL application to the `paths` file. As an example, the path to the SnowSQL application on my Mac is:
 
 ```shell
-snowsql -v
+/Applications/SnowSQL.app/Contents/MacOS/
 ```
+
+Then, save the file and exit the editor.
+
+---
 
 Connect to the database and set up the necessary table and data:
 
