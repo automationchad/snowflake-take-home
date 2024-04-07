@@ -15,6 +15,7 @@ CREATE DATABASE TAKE_HOME;
 ```
 
 b. The stage `my_take_home_stage` needs to be created.
+
 ```sql
 CREATE STAGE my_take_home_stage;
 ```
