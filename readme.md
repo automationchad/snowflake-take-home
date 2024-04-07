@@ -4,7 +4,7 @@ Welcome to the Snowflake Query Exercise! This document will guide you through se
 
 ## Getting Started
 
-1. **Create a Trial Account**: If you haven't already, sign up for a trial account at [Snowflake](https://app.snowflake.com/zzgoyys/wv29513/#/data/databases/TAKE_HOME).
+1. **View Trial Account**: If you haven't already, check out the [Snowflake Trial Account](https://app.snowflake.com/zzgoyys/wv29513/#/data/databases/TAKE_HOME).
 
 2. **Access the Database**: Once logged in, navigate to the `TAKE_HOME` database where the `weather_data` table is stored.
 
@@ -14,11 +14,11 @@ Before running the queries, ensure you have SnowSQL installed on your machine. F
 
 To install Snowflake on your Mac, you can use Homebrew:
 
-```bash
+```shell
 brew install --cask snowflake-snowsql
 ```
 
-#In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
+In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
 
 ```shell
 cd ..
@@ -34,20 +34,36 @@ Y
 [ENTER]
 ```
 
+Verify that SnowSQL is installed correctly by running the following command:
+
+```shell
 snowsql -v
+```
+
+Connect to the database and set up the necessary table and data:
+
+```shell
 snowsql -a kb96841.ap-southeast-2 -u williammarzella
-# password entered here
+# 🗝️ Password entered here
+```
 
+Use the `use` command to switch to the `TAKE_HOME` database:
+
+```shell
 use database TAKE_HOME;
+```
 
-# Upload the file to the stage
+Upload the file to the stage:
 
+```shell
 PUT file:///Users/marzella/Downloads/snowflake_takehome/weather.csv 
 @my_take_home_stage 
 auto_compress=false;
+```
 
-# Create the table
+Create the table:
 
+```sql
 CREATE TABLE weather_data (
     country VARCHAR,
     state VARCHAR,
@@ -62,13 +78,18 @@ CREATE TABLE weather_data (
     total_snowfall_in FLOAT,
     total_snowdepth_in FLOAT
 );
+```
 
-# Copy the data into the table
+Copy the data into the table:
 
+```sql
 COPY into weather_data
 from @my_take_home_stage/weather.csv
 file_format = (type = csv field_optionally_enclosed_by='"')
 on_error = 'skip_file';
+```
+
+Done! You're now ready to run the queries.
 
 ## Running Queries
 
