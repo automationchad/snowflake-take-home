@@ -10,7 +10,7 @@ Welcome to the Snowflake Query Exercise! This document will guide you through se
 
 ## Environment Setup
 
-Before running the queries, ensure you have SnowSQL installed on your machine. Follow the instructions in `install-scripts.sh` to install SnowSQL, connect to the database, and set up the necessary table and data.
+Before running the queries, ensure you have SnowSQL installed on your machine. Follow the below instructions to install SnowSQL, connect to the database, and set up the necessary table and data.
 
 To install Snowflake on your Mac, you can use Homebrew:
 
@@ -18,17 +18,16 @@ To install Snowflake on your Mac, you can use Homebrew:
 brew install --cask snowflake-snowsql
 ```
 
-#In the case that the command `snowsql` is not found, you can use the below to fix it:
+#In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
 
-```bash
-1. Open Terminal
+```shell
 cd ..
 cd ..
 ls
 cd etc
 sudo nano paths
-2. Enter Password
-3. Add in the path as follows for me:
+# 2. Enter Password
+# 3. Add in the path as follows:
    /Applications/SnowSQL.app/Contents/MacOS/
 control + x
 Y
