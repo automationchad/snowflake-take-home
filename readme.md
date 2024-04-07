@@ -24,9 +24,9 @@ Verify that SnowSQL is installed correctly by running the following command:
 snowsql -v
 ```
 
-## Troubleshooting
+### Troubleshooting
 
-In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
+>[!NOTE] In the case that the command `snowsql` is not found, open your terminal and run the below to fix it:
 
 ```shell
 cd ..
