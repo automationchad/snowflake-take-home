@@ -112,6 +112,8 @@ The `queries.sql` file contains a series of SQL queries designed to extract mean
 - The maximum number of consecutive days of rainfall in each city in June 2016.
 - The space the weather data table occupies.
 
+The queries will also be available in the trial account in the worksheet [Take home queries on weather data](https://app.snowflake.com/zzgoyys/wv29513/w32STmaHqJ7e#query).
+
 ## Conclusion
 
 This exercise provides a practical way to familiarize yourself with Snowflake and SQL queries. By analyzing real-world weather data, you'll gain insights into data manipulation and querying techniques that are essential for data analysis and business intelligence tasks.
