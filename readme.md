@@ -1,18 +1,48 @@
 # Snowflake Query Exercise
 
-Welcome to the Snowflake Query Exercise! This document will guide you through setting up your environment and executing a series of SQL queries on a weather dataset stored in Snowflake. 
+Welcome to the Snowflake Query Exercise! This document will guide you through setting up your environment and executing a series of SQL queries on a weather dataset stored in Snowflake. It uses both the Snowflake CLI and SnowSQL to execute the queries.
 
-## Getting Started
+**View Trial Account**: If you haven't already, check out the [Snowflake Trial Account](https://app.snowflake.com/zzgoyys/wv29513/#/data/databases/TAKE_HOME).
 
-1. **View Trial Account**: If you haven't already, check out the [Snowflake Trial Account](https://app.snowflake.com/zzgoyys/wv29513/#/data/databases/TAKE_HOME).
+## Database Setup
 
-2. **Access the Database**: Once logged in, navigate to the `TAKE_HOME` database where the `weather_data` table is stored.
+Before running the queries you must run the following commands in a Snowflake worksheet to create the database, stage, and table.
 
-## Environment Setup
+a. Database `TAKE_HOME` needs to be created.
 
-Before running the queries, ensure you have SnowSQL installed on your machine. Follow the below instructions to install SnowSQL, connect to the database, and set up the necessary table and data.
+```sql
+CREATE DATABASE TAKE_HOME;
+```
 
-To install Snowflake on your Mac, you can use Homebrew:
+b. The stage `my_take_home_stage` needs to be created.
+```sql
+CREATE STAGE my_take_home_stage;
+```
+
+c. The table `weather_data` needs to be created.
+
+```sql
+CREATE TABLE weather_data (
+    country VARCHAR,
+    state VARCHAR,
+    city VARCHAR,
+    postal_code VARCHAR,
+    observation_date DATE,
+    day_of_year INTEGER,
+    temp_min_f FLOAT,
+    temp_max_f FLOAT,
+    temp_avg_f FLOAT,
+    total_precip_in FLOAT,
+    total_snowfall_in FLOAT,
+    total_snowdepth_in FLOAT
+);
+```
+
+Once created you can navigate to the `TAKE_HOME` database where the `weather_data` data will be stored.
+
+## CLI Setup
+
+For this exercise, you'll be using the Snowflake CLI to execute the queries. Follow the below instructions to install SnowSQL, connect to the database, and set up the necessary data. To install Snowflake on your Mac, you can use Homebrew:
 
 ```shell
 brew install --cask snowflake-snowsql
@@ -37,6 +67,7 @@ sudo nano paths
 ```
 
 You'll then be prompted to enter your password. 
+
 After that, add the path to the SnowSQL application to the `paths` file. As an example, the path to the SnowSQL application on my Mac is:
 
 ```shell
@@ -66,25 +97,6 @@ Upload the file to the stage:
 PUT file:///Users/marzella/Downloads/snowflake_takehome/weather.csv 
 @my_take_home_stage 
 auto_compress=false;
-```
-
-Create the table:
-
-```sql
-CREATE TABLE weather_data (
-    country VARCHAR,
-    state VARCHAR,
-    city VARCHAR,
-    postal_code VARCHAR,
-    observation_date DATE,
-    day_of_year INTEGER,
-    temp_min_f FLOAT,
-    temp_max_f FLOAT,
-    temp_avg_f FLOAT,
-    total_precip_in FLOAT,
-    total_snowfall_in FLOAT,
-    total_snowdepth_in FLOAT
-);
 ```
 
 Copy the data into the table:
